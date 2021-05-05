@@ -9,6 +9,8 @@ import { HeaderNavComponent } from './header-nav/header-nav.component';
 import { RestaurantHeaderComponent } from './restaurant-header/restaurant-header.component';
 import { ContentComponent } from './content/content.component';
 import { FoodCategoriesComponent } from './food-categories/food-categories.component';
+import { CartComponent } from './cart/cart.component';
+import { CartItemComponent } from './cart-item/cart-item.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { FoodCategoriesComponent } from './food-categories/food-categories.compo
     HeaderNavComponent,
     RestaurantHeaderComponent,
     ContentComponent,
-    FoodCategoriesComponent
+    FoodCategoriesComponent,
+    CartComponent,
+    CartItemComponent
   ],
   imports: [
     BrowserModule,
