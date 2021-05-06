@@ -13,6 +13,8 @@ import { CartComponent } from './cart/cart.component';
 import { CartItemComponent } from './cart-item/cart-item.component';
 import { MenuItemComponent } from './menu-item/menu-item.component';
 import { MenuComponent } from './menu/menu.component';
+import { IngredientsComponent } from './ingredients/ingredients.component';
+import { IngredientsListComponent } from './ingredients-list/ingredients-list.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { MenuComponent } from './menu/menu.component';
     CartComponent,
     CartItemComponent,
     MenuItemComponent,
-    MenuComponent
+    MenuComponent,
+    IngredientsComponent,
+    IngredientsListComponent
   ],
   imports: [
     BrowserModule,
