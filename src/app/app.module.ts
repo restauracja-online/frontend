@@ -15,6 +15,7 @@ import { MenuItemComponent } from './menu-item/menu-item.component';
 import { MenuComponent } from './menu/menu.component';
 import { IngredientsComponent } from './ingredients/ingredients.component';
 import { IngredientsListComponent } from './ingredients-list/ingredients-list.component';
+import { MenuCategoriesComponent } from './menu-categories/menu-categories.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { IngredientsListComponent } from './ingredients-list/ingredients-list.co
     MenuItemComponent,
     MenuComponent,
     IngredientsComponent,
-    IngredientsListComponent
+    IngredientsListComponent,
+    MenuCategoriesComponent
   ],
   imports: [
     BrowserModule,
