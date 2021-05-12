@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
+import {ModalEventBusService} from '../../modal-event-bus.service';
 
 @Component({
   selector: 'app-user-menu-modal',
@@ -8,10 +9,14 @@ import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 })
 export class UserMenuModalComponent implements OnInit {
 
-  constructor(public activeModal: NgbActiveModal) {
+  constructor(public activeModal: NgbActiveModal, public modalEventBus: ModalEventBusService) {
   }
 
   ngOnInit(): void {
+  }
+
+  navigate(targetModal: string): void {
+    this.modalEventBus.emitModalRouteEvent(targetModal);
   }
 
 }
