@@ -18,6 +18,7 @@ import { IngredientsListComponent } from './ingredients-list/ingredients-list.co
 import { MenuCategoriesComponent } from './menu-categories/menu-categories.component';
 import { UserMenuModalComponent } from './modals/user-menu-modal/user-menu-modal.component';
 import { LoginFormModalComponent } from './modals/login-form-modal/login-form-modal.component';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { LoginFormModalComponent } from './modals/login-form-modal/login-form-mo
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
