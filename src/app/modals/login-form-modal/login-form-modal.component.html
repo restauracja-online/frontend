@@ -2,20 +2,28 @@
   <form action="#">
     <div class="form-group">
       <label for="email">Email</label>
-      <input required [(ngModel)]="form.email" #email="ngModel" type="email" name="email" id="email" class="form-control" >
+      <input required [(ngModel)]="form.email" #email="ngModel" type="email" name="email" id="email"
+             class="form-control">
       <small class="text-center text-danger" *ngIf="email.touched && !email.valid">Email jest wymagany</small>
     </div>
     <div class="form-group">
       <label for="password">Hasło</label>
-      <input required [(ngModel)]="form.password" #password="ngModel" name="password" id="password" type="password" class="form-control" >
+      <input required [(ngModel)]="form.password" #password="ngModel" name="password" id="password" type="password"
+             class="form-control">
       <small class="text-center text-danger" *ngIf="password.touched && !password.valid">Hasło jest wymagane</small>
     </div>
-   <div class="form-group mt-4">
-     <div class="row text-center">
-       <div class="col"><button class="btn btn-primary btn-block" type="submit">Wyślij</button></div>
-       <div class="col"><button class="btn btn-secondary btn-block" type="submit">Anuluj</button></div>
-     </div>
-   </div>
+    <div class="form-group mt-4">
+      <div class="row text-center">
+        <div class="col">
+          <button class="btn btn-primary btn-block" type="submit">Wyślij</button>
+        </div>
+        <div class="col">
+          <button class="btn btn-secondary btn-block" type="submit"
+                  (click)="this.activeModal.dismiss('Closed by user')">Anuluj
+          </button>
+        </div>
+      </div>
+    </div>
   </form>
 
 </div>

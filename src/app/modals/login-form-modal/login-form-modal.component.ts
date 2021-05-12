@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {LoginForm} from '../../forms/login';
+import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-login-form-modal',
@@ -13,7 +14,7 @@ export class LoginFormModalComponent implements OnInit {
     password: ''
   };
 
-  constructor() {
+  constructor(public activeModal: NgbActiveModal) {
   }
 
   ngOnInit(): void {
