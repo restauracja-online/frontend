@@ -19,6 +19,8 @@ import { MenuCategoriesComponent } from './menu-categories/menu-categories.compo
 import { UserMenuModalComponent } from './modals/user-menu-modal/user-menu-modal.component';
 import { LoginFormModalComponent } from './modals/login-form-modal/login-form-modal.component';
 import {FormsModule} from '@angular/forms';
+import { SignupFormModalComponent } from './modals/signup-form-modal/signup-form-modal.component';
+import { MatchingPasswordValidatorDirective } from './directives/matching-password-validator.directive';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import {FormsModule} from '@angular/forms';
     IngredientsListComponent,
     MenuCategoriesComponent,
     UserMenuModalComponent,
-    LoginFormModalComponent
+    LoginFormModalComponent,
+    SignupFormModalComponent,
+    MatchingPasswordValidatorDirective
   ],
   imports: [
     BrowserModule,
