@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { faUtensils, faBars } from '@fortawesome/free-solid-svg-icons';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {UserMenuModalComponent} from '../modals/user-menu-modal/user-menu-modal.component';
 
 @Component({
   selector: 'app-header-nav',
@@ -11,9 +13,13 @@ export class HeaderNavComponent implements OnInit {
   faUtensils = faUtensils;
   faBars = faBars;
 
-  constructor() { }
+  constructor(private modalService: NgbModal) { }
 
   ngOnInit(): void {
+  }
+
+  openUserMenuModal(): void {
+    this.modalService.open(UserMenuModalComponent);
   }
 
 }

@@ -16,6 +16,8 @@ import { MenuComponent } from './menu/menu.component';
 import { IngredientsComponent } from './ingredients/ingredients.component';
 import { IngredientsListComponent } from './ingredients-list/ingredients-list.component';
 import { MenuCategoriesComponent } from './menu-categories/menu-categories.component';
+import { UserMenuModalComponent } from './modals/user-menu-modal/user-menu-modal.component';
+import { LoginFormModalComponent } from './modals/login-form-modal/login-form-modal.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { MenuCategoriesComponent } from './menu-categories/menu-categories.compo
     MenuComponent,
     IngredientsComponent,
     IngredientsListComponent,
-    MenuCategoriesComponent
+    MenuCategoriesComponent,
+    UserMenuModalComponent,
+    LoginFormModalComponent
   ],
   imports: [
     BrowserModule,
