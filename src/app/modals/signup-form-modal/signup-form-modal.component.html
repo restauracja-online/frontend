@@ -28,17 +28,28 @@
               && repeatedPassword.errors.matchPassword">Hasła muszą się zgadzać</small>
     </div>
     <div class="form-group mt-4">
-      <div class="row text-center">
+      <div class="row">
+       <div class="col">
+         <small class="text-center text-success"
+                *ngIf="successMessage">{{successMessage}}</small>
+       </div>
+      </div>
+      <div class="row mb-3">
         <div class="col">
-          <button class="btn btn-primary btn-block" type="submit">Wyślij</button>
+          <small class="text-center text-danger"
+                 *ngIf="failureMessage">{{failureMessage}}</small>
+        </div>
+      </div>
+      <div class="row text-center mb-3">
+        <div class="col">
+          <button class="btn btn-primary btn-block" type="submit" (click)="signup()">Wyślij</button>
         </div>
         <div class="col">
-          <button class="btn btn-secondary btn-block" type="submit"
+          <button class="btn btn-secondary btn-block" type="button"
                   (click)="this.activeModal.dismiss('Closed by user')">Anuluj
           </button>
         </div>
       </div>
     </div>
   </form>
-
 </div>

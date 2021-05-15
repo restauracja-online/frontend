@@ -5,6 +5,8 @@ import {LoginForm} from './forms/login';
 import {Observable} from 'rxjs';
 import {Token} from './model/token';
 import {ApiError} from './model/apiError';
+import {SignUp} from './forms/sign-up';
+import {UserDetails} from './model/user-details';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +16,7 @@ export class HttpService {
   private readonly apiURL;
   private readonly USER_RESOURCE = '/user';
   private readonly LOGIN_RESOURCE = '/login';
+  private readonly SIGNUP_RESOURCE = '/sign-up';
 
   constructor(private httpClient: HttpClient) {
     this.apiURL = environment.apiUrl;
@@ -25,7 +28,12 @@ export class HttpService {
     return msg.messages[0].message;
   }
 
-  postLoginForm(loginForm: LoginForm): Observable<Token> {
-    return this.httpClient.post<Token>(`${this.apiURL}${this.LOGIN_RESOURCE}`, loginForm);
+  postLoginForm(form: LoginForm): Observable<Token> {
+    return this.httpClient.post<Token>(`${this.apiURL}${this.LOGIN_RESOURCE}`, form);
   }
+
+  postSignUpForm(form: SignUp): Observable<UserDetails> {
+    return this.httpClient.post<UserDetails>(`${this.apiURL}${this.SIGNUP_RESOURCE}`, form);
+  }
+
 }
