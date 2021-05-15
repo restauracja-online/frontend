@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {SignUp} from '../../forms/sign-up';
+import {MatchingPasswordValidatorDirective} from '../../directives/matching-password-validator.directive';
 
 @Component({
   selector: 'app-signup-form-modal',
