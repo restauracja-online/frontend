@@ -16,6 +16,11 @@ import { MenuComponent } from './menu/menu.component';
 import { IngredientsComponent } from './ingredients/ingredients.component';
 import { IngredientsListComponent } from './ingredients-list/ingredients-list.component';
 import { MenuCategoriesComponent } from './menu-categories/menu-categories.component';
+import { UserMenuModalComponent } from './modals/user-menu-modal/user-menu-modal.component';
+import { LoginFormModalComponent } from './modals/login-form-modal/login-form-modal.component';
+import {FormsModule} from '@angular/forms';
+import { SignupFormModalComponent } from './modals/signup-form-modal/signup-form-modal.component';
+import { MatchingPasswordValidatorDirective } from './directives/matching-password-validator.directive';
 
 @NgModule({
   declarations: [
@@ -30,13 +35,18 @@ import { MenuCategoriesComponent } from './menu-categories/menu-categories.compo
     MenuComponent,
     IngredientsComponent,
     IngredientsListComponent,
-    MenuCategoriesComponent
+    MenuCategoriesComponent,
+    UserMenuModalComponent,
+    LoginFormModalComponent,
+    SignupFormModalComponent,
+    MatchingPasswordValidatorDirective
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
