@@ -21,6 +21,7 @@ import { LoginFormModalComponent } from './modals/login-form-modal/login-form-mo
 import {FormsModule} from '@angular/forms';
 import { SignupFormModalComponent } from './modals/signup-form-modal/signup-form-modal.component';
 import { MatchingPasswordValidatorDirective } from './directives/matching-password-validator.directive';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -46,9 +47,10 @@ import { MatchingPasswordValidatorDirective } from './directives/matching-passwo
     AppRoutingModule,
     NgbModule,
     FontAwesomeModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [HttpClientModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
