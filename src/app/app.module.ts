@@ -22,6 +22,8 @@ import {FormsModule} from '@angular/forms';
 import { SignupFormModalComponent } from './modals/signup-form-modal/signup-form-modal.component';
 import { MatchingPasswordValidatorDirective } from './directives/matching-password-validator.directive';
 import {HttpClientModule} from '@angular/common/http';
+import { UserViewComponent } from './user-view/user-view.component';
+import { AdminViewComponent } from './admin-view/admin-view.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import {HttpClientModule} from '@angular/common/http';
     UserMenuModalComponent,
     LoginFormModalComponent,
     SignupFormModalComponent,
-    MatchingPasswordValidatorDirective
+    MatchingPasswordValidatorDirective,
+    UserViewComponent,
+    AdminViewComponent
   ],
   imports: [
     BrowserModule,

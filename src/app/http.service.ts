@@ -36,4 +36,8 @@ export class HttpService {
     return this.httpClient.post<UserDetails>(`${this.apiURL}${this.SIGNUP_RESOURCE}`, form);
   }
 
+  getUserDetails(): Observable<UserDetails> {
+    return this.httpClient.get<UserDetails>(`${this.apiURL}${this.USER_RESOURCE}/me`);
+  }
+
 }
