@@ -21,9 +21,10 @@ import { LoginFormModalComponent } from './modals/login-form-modal/login-form-mo
 import {FormsModule} from '@angular/forms';
 import { SignupFormModalComponent } from './modals/signup-form-modal/signup-form-modal.component';
 import { MatchingPasswordValidatorDirective } from './directives/matching-password-validator.directive';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { UserViewComponent } from './user-view/user-view.component';
 import { AdminViewComponent } from './admin-view/admin-view.component';
+import {TokenInterceptor} from './token.interceptor';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { AdminViewComponent } from './admin-view/admin-view.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [HttpClientModule],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

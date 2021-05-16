@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {UserDetails} from '../model/user-details';
+import {UserService} from '../user.service';
 
 @Component({
   selector: 'app-user-view',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserViewComponent implements OnInit {
 
-  constructor() { }
+  userDetails: UserDetails;
+
+  constructor(private userService: UserService) {
+  }
 
   ngOnInit(): void {
+    this.userService.getUserDetail().subscribe(details => {
+      this.userDetails = details;
+    });
   }
 
 }
