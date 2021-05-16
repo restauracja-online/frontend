@@ -5,6 +5,7 @@ import {UserMenuModalComponent} from '../modals/user-menu-modal/user-menu-modal.
 import {LoginFormModalComponent} from '../modals/login-form-modal/login-form-modal.component';
 import {ModalEventBusService} from '../modal-event-bus.service';
 import {SignupFormModalComponent} from '../modals/signup-form-modal/signup-form-modal.component';
+import {UserService} from '../user.service';
 
 /*
 * Probably it's good to extract modal logic to separate service or even better use routing to navigate between modals.
@@ -18,16 +19,28 @@ export class HeaderNavComponent implements OnInit {
 
   faUtensils = faUtensils;
   faBars = faBars;
+  userAddress = '';
 
-  constructor(private modalService: NgbModal, private modalEventBus: ModalEventBusService) {
+  constructor(private modalService: NgbModal, private modalEventBus: ModalEventBusService, private userService: UserService) {
   }
 
   ngOnInit(): void {
     this.onModalChange();
+    this.getUserAddress();
   }
 
   openUserMenuModal(): void {
     this.modalService.open(UserMenuModalComponent);
+  }
+
+  getUserAddress(): void {
+    this.userService
+      .getUserDetail()
+      .subscribe(userDetails => {
+        const address = userDetails.addresses[0];
+        console.log('address');
+        this.userAddress = `${address.city}, ${address.street} ${address.buildingNumber}`;
+      });
   }
 
   openLoginFormModal(): void {
