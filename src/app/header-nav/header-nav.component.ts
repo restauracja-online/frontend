@@ -34,13 +34,18 @@ export class HeaderNavComponent implements OnInit {
   }
 
   getUserAddress(): void {
-    this.userService
-      .getUserDetail()
-      .subscribe(userDetails => {
-        const address = userDetails.addresses[0];
-        console.log('address');
-        this.userAddress = `${address.city}, ${address.street} ${address.buildingNumber}`;
-      });
+    this.userService.userLoggedEventBus().subscribe(userLoggedEvent => {
+      if (userLoggedEvent) {
+        this.userService.getUserDetail().subscribe(userDetails => {
+          console.log('details' + userDetails);
+          const address = userDetails.addresses[0];
+          this.userAddress = !!address ? `${address.city}, ${address.street} ${address.buildingNumber}` : '';
+        });
+      } else {
+        this.userAddress = '';
+      }
+    });
+
   }
 
   openLoginFormModal(): void {

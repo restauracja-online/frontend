@@ -12,17 +12,17 @@ export class AdminGuard implements CanActivate {
   constructor(private userService: UserService, private router: Router) {
   }
 
-  canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> {
+  canActivate(route: ActivatedRouteSnapshot,
+              state: RouterStateSnapshot): Observable<boolean | UrlTree> {
 
-    if (!this.userService.isUserLogged()) {
-      return of(this.router.parseUrl('/'));
+    if (localStorage.getItem('token')) {
+      return this.userService.getUserDetail()
+        .pipe(map(
+          userDetails => {
+            console.log('user role: ' + userDetails.role);
+            return userDetails.role.includes('ADMIN') ? true : this.router.parseUrl('/');
+          }));
     }
-
-    return this.userService
-      .getUserDetail()
-      .pipe(map(userDetails => userDetails.role.includes('ADMIN') ? true : this.router.parseUrl('/')));
   }
 
 }

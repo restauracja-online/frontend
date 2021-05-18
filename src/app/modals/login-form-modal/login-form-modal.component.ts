@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {LoginForm} from '../../forms/login';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {HttpService} from '../../http.service';
+import {Router} from '@angular/router';
+import {UserService} from '../../user.service';
 
 @Component({
   selector: 'app-login-form-modal',
@@ -17,7 +19,8 @@ export class LoginFormModalComponent implements OnInit {
 
   loginErrorMessage = '';
 
-  constructor(public activeModal: NgbActiveModal, private httpService: HttpService) {
+  constructor(public activeModal: NgbActiveModal, private userService: UserService,
+              private httpService: HttpService, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -26,12 +29,21 @@ export class LoginFormModalComponent implements OnInit {
   login(): void {
     this.httpService.postLoginForm(this.form).subscribe(
       token => {
-        localStorage.setItem('token', token.token);
+        this.userService.saveTokenInLocalStorage(token.token);
+        this.httpService.getUserDetails().subscribe(userDetails => {
+          const role = userDetails.role;
+
+          if (role.includes('ADMIN')) {
+            this.router.navigateByUrl('/admin');
+          } else {
+            this.router.navigateByUrl('/home');
+          }
+        });
+
         this.activeModal.dismiss('User logged');
       },
       err => {
         this.loginErrorMessage = HttpService.extractErrorMessage(err);
-      }
-    );
+      });
   }
 }

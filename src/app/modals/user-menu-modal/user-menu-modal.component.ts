@@ -9,17 +9,21 @@ import {UserService} from '../../user.service';
   styleUrls: ['./user-menu-modal.component.css']
 })
 export class UserMenuModalComponent implements OnInit {
-  isUserLogged = false;
+
+  isUserLogged: boolean = !!localStorage.getItem('token');
 
   constructor(public activeModal: NgbActiveModal, public modalEventBus: ModalEventBusService, private userService: UserService) {
   }
 
   ngOnInit(): void {
-    this.isUserLogged = this.userService.isUserLogged();
   }
 
   navigate(targetModal: string): void {
     this.modalEventBus.emitModalRouteEvent(targetModal);
   }
 
+  logout(): void {
+    this.userService.logout();
+    this.activeModal.dismiss('logout');
+  }
 }
