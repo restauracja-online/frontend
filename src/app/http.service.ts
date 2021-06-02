@@ -7,6 +7,7 @@ import {Token} from './model/token';
 import {ApiError} from './model/apiError';
 import {SignUp} from './forms/sign-up';
 import {UserDetails} from './model/user-details';
+import {DishDetails} from './model/dish-details';
 
 @Injectable({
   providedIn: 'root'
@@ -38,6 +39,10 @@ export class HttpService {
 
   getUserDetails(): Observable<UserDetails> {
     return this.httpClient.get<UserDetails>(`${this.apiURL}${this.USER_RESOURCE}/me`);
+  }
+
+  getDishes(): Observable<DishDetails[]>{
+    return this.httpClient.get<DishDetails[]>(`${this.apiURL}/all`);
   }
 
 }

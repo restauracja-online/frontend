@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {HttpClient, HttpErrorResponse} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {HttpService} from '../http.service';
+import {DishDetails} from '../model/dish-details';
 
 @Component({
   selector: 'app-menu-item',
@@ -7,9 +11,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuItemComponent implements OnInit {
 
-  constructor() { }
+  public dish: DishDetails[];
 
-  ngOnInit(): void {
+  constructor(
+    public rest: HttpService
+  ) {
   }
 
-}
+  ngOnInit(): void {
+    this.loadDishes();
+  }
+
+  public loadDishes(): void {
+    this.rest.getDishes().subscribe(
+      (response: DishDetails[]) => {
+        this.dish = response;
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
+    }
+  }
+
+
