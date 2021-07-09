@@ -18,13 +18,18 @@ import { IngredientsListComponent } from './ingredients-list/ingredients-list.co
 import { MenuCategoriesComponent } from './menu-categories/menu-categories.component';
 import { UserMenuModalComponent } from './modals/user-menu-modal/user-menu-modal.component';
 import { LoginFormModalComponent } from './modals/login-form-modal/login-form-modal.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { SignupFormModalComponent } from './modals/signup-form-modal/signup-form-modal.component';
 import { MatchingPasswordValidatorDirective } from './directives/matching-password-validator.directive';
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { UserViewComponent } from './user-view/user-view.component';
 import { AdminViewComponent } from './admin-view/admin-view.component';
 import {TokenInterceptor} from './token.interceptor';
+import { AdminProductViewComponent } from './admin-product-view/admin-product-view.component';
+import { AdminIngredientsAddComponent } from './admin-ingredients-add/admin-ingredients-add.component';
+import { AdminIngredientsViewComponent } from './admin-ingredients-view/admin-ingredients-view.component';
+import { AdminProductAddComponent } from './admin-product-add/admin-product-add.component';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
 @NgModule({
   declarations: [
@@ -45,7 +50,11 @@ import {TokenInterceptor} from './token.interceptor';
     SignupFormModalComponent,
     MatchingPasswordValidatorDirective,
     UserViewComponent,
-    AdminViewComponent
+    AdminViewComponent,
+    AdminProductViewComponent,
+    AdminIngredientsAddComponent,
+    AdminIngredientsViewComponent,
+    AdminProductAddComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +62,9 @@ import {TokenInterceptor} from './token.interceptor';
     NgbModule,
     FontAwesomeModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    NgMultiSelectDropDownModule.forRoot()
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true}],

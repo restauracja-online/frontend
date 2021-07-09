@@ -18,6 +18,9 @@
        <ul class="list-group">
          <li class="list-group-item">Zamówienia</li>
          <li class="list-group-item">Adres</li>
+         <li class="list-group-item" *ngIf="isAdmin">
+           <a routerLink="/admin" routerLinkActive="active" (click)="activeModal.close()">Panel administratora</a>
+         </li>
        </ul>
      </div>
    </div>

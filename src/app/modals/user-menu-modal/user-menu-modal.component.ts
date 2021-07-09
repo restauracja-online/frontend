@@ -11,15 +11,27 @@ import {UserService} from '../../user.service';
 export class UserMenuModalComponent implements OnInit {
 
   isUserLogged: boolean = !!localStorage.getItem('token');
+  isAdmin = false;
 
   constructor(public activeModal: NgbActiveModal, public modalEventBus: ModalEventBusService, private userService: UserService) {
   }
 
   ngOnInit(): void {
+    this.checkIsAdmin();
   }
 
   navigate(targetModal: string): void {
     this.modalEventBus.emitModalRouteEvent(targetModal);
+  }
+
+  checkIsAdmin(): void {
+    if (localStorage.getItem('token')) {
+      this.userService.getUserDetail().toPromise().then(value => {
+        if (value.role.includes('ADMIN')) {
+          this.isAdmin = true;
+        }
+      });
+    }
   }
 
   logout(): void {
