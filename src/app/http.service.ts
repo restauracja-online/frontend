@@ -11,6 +11,7 @@ import {IngredientsDetails} from './model/ingredients-details';
 import {IngredientsForm} from './forms/ingredients';
 import {DishDetails} from './model/dish-details';
 import {DishForm} from './forms/dish';
+import {Address} from './forms/address';
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +26,7 @@ export class HttpService {
   private readonly INGREDIENT_RESOURCE = '/admin/ingredient';
   private readonly DISHES_RESOURCE = '/admin/dishes';
   private readonly DISH_RESOURCE = '/admin/dish';
+  private readonly DISH_RESOURCE_MAIN = '/dishes';
 
   constructor(private httpClient: HttpClient) {
     this.apiURL = environment.apiUrl;
@@ -46,6 +48,10 @@ export class HttpService {
 
   getUserDetails(): Observable<UserDetails> {
     return this.httpClient.get<UserDetails>(`${this.apiURL}${this.USER_RESOURCE}/me`);
+  }
+
+  saveAddress(form: Address): Observable<UserDetails> {
+    return this.httpClient.post<UserDetails>(`${this.apiURL}${this.USER_RESOURCE}/address`, form);
   }
 
   postIngredients(form: IngredientsForm): Observable<IngredientsDetails> {
@@ -72,6 +78,10 @@ export class HttpService {
 
   getDishes(): Observable<DishDetails[]> {
     return this.httpClient.get<DishDetails[]>(`${this.apiURL}${this.DISHES_RESOURCE}`);
+  }
+
+  getDishesMain(): Observable<DishDetails[]> {
+    return this.httpClient.get<DishDetails[]>(`${this.apiURL}${this.DISH_RESOURCE_MAIN}`);
   }
 
   postDishes(dishForm: DishForm): Observable<DishDetails> {

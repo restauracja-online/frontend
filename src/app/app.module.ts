@@ -11,11 +11,8 @@ import { ContentComponent } from './content/content.component';
 import { FoodCategoriesComponent } from './food-categories/food-categories.component';
 import { CartComponent } from './cart/cart.component';
 import { CartItemComponent } from './cart-item/cart-item.component';
-import { MenuItemComponent } from './menu-item/menu-item.component';
-import { MenuComponent } from './menu/menu.component';
 import { IngredientsComponent } from './ingredients/ingredients.component';
 import { IngredientsListComponent } from './ingredients-list/ingredients-list.component';
-import { MenuCategoriesComponent } from './menu-categories/menu-categories.component';
 import { UserMenuModalComponent } from './modals/user-menu-modal/user-menu-modal.component';
 import { LoginFormModalComponent } from './modals/login-form-modal/login-form-modal.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -30,6 +27,8 @@ import { AdminIngredientsAddComponent } from './admin-ingredients-add/admin-ingr
 import { AdminIngredientsViewComponent } from './admin-ingredients-view/admin-ingredients-view.component';
 import { AdminProductAddComponent } from './admin-product-add/admin-product-add.component';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { AddressFormModalComponent } from './modals/address-form-modal/address-form-modal.component';
+import { ProductViewComponent } from './product-view/product-view.component';
 
 @NgModule({
   declarations: [
@@ -40,11 +39,8 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
     FoodCategoriesComponent,
     CartComponent,
     CartItemComponent,
-    MenuItemComponent,
-    MenuComponent,
     IngredientsComponent,
     IngredientsListComponent,
-    MenuCategoriesComponent,
     UserMenuModalComponent,
     LoginFormModalComponent,
     SignupFormModalComponent,
@@ -54,7 +50,9 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
     AdminProductViewComponent,
     AdminIngredientsAddComponent,
     AdminIngredientsViewComponent,
-    AdminProductAddComponent
+    AdminProductAddComponent,
+    AddressFormModalComponent,
+    ProductViewComponent
   ],
   imports: [
     BrowserModule,

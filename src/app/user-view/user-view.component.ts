@@ -17,7 +17,7 @@ export class UserViewComponent implements OnInit {
   ngOnInit(): void {
     this.userService.getUserDetail().subscribe(details => {
       this.userDetails = details;
-    });
+    }, error => console.log('user nie zalogowany'));
   }
 
 }

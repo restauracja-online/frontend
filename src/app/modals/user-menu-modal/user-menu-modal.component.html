@@ -14,10 +14,12 @@
      <div class="col"><button type="button" class="btn btn-primary" (click)="logout()">Wyloguj sie</button></div>
    </div>
    <div class="row">
-     <div class="col">
+     <div class="col" *ngIf="isUserLogged">
        <ul class="list-group">
          <li class="list-group-item">Zamówienia</li>
-         <li class="list-group-item">Adres</li>
+         <li class="list-group-item">
+           <a routerLinkActive="active" (click)="navigate('address')"><button type="button" class="btn btn-primary">Adres</button></a>
+         </li>
          <li class="list-group-item" *ngIf="isAdmin">
            <a routerLink="/admin" routerLinkActive="active" (click)="activeModal.close()">Panel administratora</a>
          </li>
