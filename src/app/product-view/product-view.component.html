@@ -16,7 +16,7 @@
           <div class="col">
             <div class="row mt-2">
               <h5 class="mt-1 font-weight-bold">{{dishdetails.price | currency: "PLN"}}</h5>
-              <button class="btn btn-primary" type="submit" style="margin: 0 auto;">Dodaj do zamówienia!</button>
+              <button (click)="addToCart(dishdetails.id)" class="btn btn-primary" type="submit" style="margin: 0 auto;">Dodaj do zamówienia!</button>
             </div>
           </div>
         </div>

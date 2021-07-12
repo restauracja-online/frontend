@@ -12,6 +12,9 @@ import {IngredientsForm} from './forms/ingredients';
 import {DishDetails} from './model/dish-details';
 import {DishForm} from './forms/dish';
 import {Address} from './forms/address';
+import {CartDetails} from './model/cart';
+// @ts-ignore
+import {OrderRowRequest} from './model/order-row-request';
 
 @Injectable({
   providedIn: 'root'
@@ -27,6 +30,7 @@ export class HttpService {
   private readonly DISHES_RESOURCE = '/admin/dishes';
   private readonly DISH_RESOURCE = '/admin/dish';
   private readonly DISH_RESOURCE_MAIN = '/dishes';
+  private readonly CART_DETAILS = '/user/cart';
 
   constructor(private httpClient: HttpClient) {
     this.apiURL = environment.apiUrl;
@@ -100,6 +104,19 @@ export class HttpService {
   removeDish(dishId: number): Observable<DishDetails> {
     return this.httpClient.delete<DishDetails>(`${this.apiURL}${this.DISH_RESOURCE}`,
       {params: new HttpParams().set('dishId', dishId.toString())});
+  }
+
+  getCart(): Observable<CartDetails> {
+    return this.httpClient.get<CartDetails>(`${this.apiURL}${this.CART_DETAILS}`);
+  }
+
+  removeOrderRow(orderRowId: number): Observable<any> {
+    return this.httpClient.delete<any>(`${this.apiURL}${this.CART_DETAILS}`,
+      {params: new HttpParams().set('orderRowId', orderRowId.toString())});
+  }
+
+  addToCart(dish: OrderRowRequest): Observable<OrderRowRequest> {
+    return this.httpClient.post<OrderRowRequest>(`${this.apiURL}${this.CART_DETAILS}`, dish);
   }
 
 }

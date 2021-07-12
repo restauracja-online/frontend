@@ -41,6 +41,7 @@ export class LoginFormModalComponent implements OnInit {
         });
 
         this.activeModal.dismiss('User logged');
+        window.location.reload();
       },
       err => {
         this.loginErrorMessage = HttpService.extractErrorMessage(err);

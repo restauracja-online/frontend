@@ -37,5 +37,6 @@ export class UserMenuModalComponent implements OnInit {
   logout(): void {
     this.userService.logout();
     this.activeModal.dismiss('logout');
+    window.location.reload();
   }
 }
