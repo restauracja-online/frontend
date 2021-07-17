@@ -16,6 +16,7 @@ export class ProductViewComponent implements OnInit {
 
   dishesMain: DishDetails[];
   orderRow: OrderRowRequest = {
+    orderRowId: null,
     dishId: null,
     dishQuantity: null
   };

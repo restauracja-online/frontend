@@ -16,7 +16,9 @@
    <div class="row">
      <div class="col" *ngIf="isUserLogged">
        <ul class="list-group">
-         <li class="list-group-item">Zamówienia</li>
+         <li class="list-group-item">
+           <a routerLinkActive="active" (click)="navigate('orders')"><button type="button" class="btn btn-primary">Zamówienia</button></a>
+         </li>
          <li class="list-group-item">
            <a routerLinkActive="active" (click)="navigate('address')"><button type="button" class="btn btn-primary">Adres</button></a>
          </li>

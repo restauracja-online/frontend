@@ -15,6 +15,8 @@ import {Address} from './forms/address';
 import {CartDetails} from './model/cart';
 // @ts-ignore
 import {OrderRowRequest} from './model/order-row-request';
+import {OrderRow} from './model/order-row';
+import {Order} from './model/order';
 
 @Injectable({
   providedIn: 'root'
@@ -31,6 +33,7 @@ export class HttpService {
   private readonly DISH_RESOURCE = '/admin/dish';
   private readonly DISH_RESOURCE_MAIN = '/dishes';
   private readonly CART_DETAILS = '/user/cart';
+  private readonly ORDER = '/user/order';
 
   constructor(private httpClient: HttpClient) {
     this.apiURL = environment.apiUrl;
@@ -117,6 +120,14 @@ export class HttpService {
 
   addToCart(dish: OrderRowRequest): Observable<OrderRowRequest> {
     return this.httpClient.post<OrderRowRequest>(`${this.apiURL}${this.CART_DETAILS}`, dish);
+  }
+
+  saveOrder(order: OrderRowRequest[]): Observable<any> {
+    return this.httpClient.post<any>(`${this.apiURL}${this.ORDER}`, order);
+  }
+
+  getOrder(): Observable<Order[]> {
+    return this.httpClient.get<Order[]>(`${this.apiURL}${this.ORDER}`);
   }
 
 }

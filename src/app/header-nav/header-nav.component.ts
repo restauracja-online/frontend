@@ -7,6 +7,7 @@ import {ModalEventBusService} from '../modal-event-bus.service';
 import {SignupFormModalComponent} from '../modals/signup-form-modal/signup-form-modal.component';
 import {UserService} from '../user.service';
 import {AddressFormModalComponent} from '../modals/address-form-modal/address-form-modal.component';
+import {OrdersComponent} from '../modals/orders/orders.component';
 
 /*
 * Probably it's good to extract modal logic to separate service or even better use routing to navigate between modals.
@@ -61,6 +62,10 @@ export class HeaderNavComponent implements OnInit {
     this.modalService.open(AddressFormModalComponent);
   }
 
+  openOrderModal(): void {
+    this.modalService.open(OrdersComponent);
+  }
+
   onModalChange(): void {
     this.modalEventBus.onModalRouteChange(target => this.openModalByName(target));
   }
@@ -74,6 +79,8 @@ export class HeaderNavComponent implements OnInit {
         return this.openSignUpFormModal();
       case 'address':
         return this.openAddressModal();
+      case 'orders':
+        return this.openOrderModal();
       default:
         throw new Error('Invalid target modal : ' + targetModal);
     }

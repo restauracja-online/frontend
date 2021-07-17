@@ -29,6 +29,7 @@ import { AdminProductAddComponent } from './admin-product-add/admin-product-add.
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { AddressFormModalComponent } from './modals/address-form-modal/address-form-modal.component';
 import { ProductViewComponent } from './product-view/product-view.component';
+import { OrdersComponent } from './modals/orders/orders.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { ProductViewComponent } from './product-view/product-view.component';
     AdminIngredientsViewComponent,
     AdminProductAddComponent,
     AddressFormModalComponent,
-    ProductViewComponent
+    ProductViewComponent,
+    OrdersComponent
   ],
   imports: [
     BrowserModule,
