@@ -1,0 +1,9 @@
+.icon-white {
+  color: white;
+}
+
+span {
+  font-size: 20px;
+  color: white;
+  border-bottom: 0.1em solid white;
+}
