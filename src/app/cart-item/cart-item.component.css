@@ -1,0 +1,25 @@
+.card-title {
+  font-weight: bold;
+  font-size: 0.9rem;
+  margin-bottom: 0.75em;
+}
+
+.card-col {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.card-subtitle {
+  font-size: 0.75rem;
+  margin-bottom: 0.75em;
+  color: #666;
+}
+
+.card-index {
+  margin-right: 0.75rem;
+}
+
+.card-item-price {
+  font-weight: normal !important;
+}
+

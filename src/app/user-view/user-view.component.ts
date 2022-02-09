@@ -1,6 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {UserDetails} from '../model/user-details';
 import {UserService} from '../user.service';
+import {ProductViewComponent} from '../product-view/product-view.component';
 
 @Component({
   selector: 'app-user-view',

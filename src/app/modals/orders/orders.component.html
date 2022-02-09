@@ -1,0 +1,21 @@
+<div class="modal-header">
+  <h4 class="modal-title">Zamówienia</h4>
+  <button type="button" class="close text-primary" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<table *ngFor="let order of orders; index as i;" class="table">
+  <h5> Zamówienie {{i+1}}</h5>
+  <tbody *ngFor="let item of order.orderItem">
+  <tr>
+    <td>{{item.name}}</td>
+    <td>{{item.price}} zł</td>
+  </tr>
+  </tbody>
+  <h5>Cena całkowita: {{order.price}}</h5>
+</table>
+<div class="col">
+  <button class="btn btn-primary btn-block" type="button"
+          (click)="this.activeModal.dismiss('Closed by user')">Anuluj
+  </button>
+</div>

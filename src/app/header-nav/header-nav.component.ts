@@ -1,5 +1,8 @@
+// @ts-ignore
 import {Component, OnInit} from '@angular/core';
+// @ts-ignore
 import {faUtensils, faBars} from '@fortawesome/free-solid-svg-icons';
+// @ts-ignore
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {UserMenuModalComponent} from '../modals/user-menu-modal/user-menu-modal.component';
 import {LoginFormModalComponent} from '../modals/login-form-modal/login-form-modal.component';
@@ -7,6 +10,7 @@ import {ModalEventBusService} from '../modal-event-bus.service';
 import {SignupFormModalComponent} from '../modals/signup-form-modal/signup-form-modal.component';
 import {UserService} from '../user.service';
 import {AddressFormModalComponent} from '../modals/address-form-modal/address-form-modal.component';
+import {OrdersComponent} from '../modals/orders/orders.component';
 
 /*
 * Probably it's good to extract modal logic to separate service or even better use routing to navigate between modals.
@@ -62,6 +66,7 @@ export class HeaderNavComponent implements OnInit {
   }
 
   openOrderModal(): void {
+    this.modalService.open(OrdersComponent);
   }
 
   onModalChange(): void {
