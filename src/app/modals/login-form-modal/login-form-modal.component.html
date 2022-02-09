@@ -1,0 +1,37 @@
+<div class="modal-body">
+  <form action="#">
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input required email [(ngModel)]="form.email" #email="ngModel" type="email" name="email" id="email"
+             class="form-control">
+      <small class="text-center text-danger"
+             *ngIf="email.touched && email.errors != null && email.errors.required">Email jest wymagany</small>
+      <small class="text-center text-danger"
+             *ngIf="email.touched && email.errors != null && email.errors.email">Niepoprawny adres email</small>
+    </div>
+    <div class="form-group">
+      <label for="password">Hasło</label>
+      <input required [(ngModel)]="form.password" #password="ngModel" name="password" id="password" type="password"
+             class="form-control">
+      <small class="text-center text-danger" *ngIf="password.touched && !password.valid">Hasło jest wymagane</small>
+    </div>
+    <div class="form-group mt-4">
+      <div class="row">
+        <div class="col mb-2">
+          <small class="text-center text-danger" *ngIf="loginErrorMessage">{{loginErrorMessage}}</small>
+        </div>
+      </div>
+      <div class="row text-center">
+        <div class="col">
+          <button class="btn btn-primary btn-block" type="submit" (click)="login()">Zaloguj</button>
+        </div>
+        <div class="col">
+          <button class="btn btn-secondary btn-block" type="button"
+                  (click)="this.activeModal.dismiss('Closed by user')">Anuluj
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+
+</div>

@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <table class="table">
+      <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nazwa składnika</th>
+        <th scope="col">Cena</th>
+        <th scope="col">Akcja</th>
+      </tr>
+      </thead>
+      <tbody *ngFor="let ingredient of ingredients">
+      <tr>
+        <th scope="row">{{ingredient.id}}</th>
+        <td>{{ingredient.name}}</td>
+        <td>{{ingredient.price}} zł</td>
+        <td>
+          <a (click)="editIngredient(ingredient.id)"><button class="btn btn-primary btn-margin">Edytuj</button></a>
+          <a (click)="removeIngredient(ingredient.id)"><button class="btn btn-danger">Usuń</button></a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <button class="btn btn-info" (click)="redirectToAddIngredient()">Dodaj składnik</button>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <form action="#">
+      <h3>{{header}}</h3>
+      <div class="form-group">
+        <label for="ing_name">Nazwa składnika</label>
+        <input required ing_name [(ngModel)]="form.ing_name" #ing_name="ngModel" type="text" name="ing_name" id="ing_name"
+               class="form-control">
+        <small class="text-center text-danger"
+               *ngIf="ing_name.touched && ing_name.errors != null && ing_name.errors.required">Nazwa składnika jest wymagana</small>
+      </div>
+      <div class="form-group">
+        <label for="ing_price">Cena</label>
+        <input required ing_price [(ngModel)]="form.ing_price" #ing_price="ngModel" type="number" name="ing_price" id="ing_price"
+               class="form-control">
+        <small class="text-center text-danger"
+               *ngIf="ing_price.touched && ing_price.errors != null && ing_price.errors.required">Cena jest wymagana</small>
+      </div>
+      <div class="col">
+        <div *ngIf="ingredientId; else addIngredientButton">
+          <button class="btn btn-primary btn-block" type="submit" (click)="edit()">Edytuj składnik</button>
+        </div>
+        <ng-template #addIngredientButton>
+          <button class="btn btn-primary btn-block" type="submit" (click)="save()">Dodaj składnik</button>
+        </ng-template>
+      </div>
+    </form>
+  </div>
+</div>

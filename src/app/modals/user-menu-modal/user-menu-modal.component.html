@@ -1,0 +1,35 @@
+<div class="modal-header">
+  <h4 class="modal-title">Ustawienia</h4>
+  <button type="button" class="close text-primary" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+ <div class="container-fluid">
+   <div class="row text-center" *ngIf="!isUserLogged">
+     <div class="col"><button type="button" class="btn btn-primary" (click)="navigate('login')">Zaloguj się</button></div>
+     <div class="col"><button type="button" class="btn btn-secondary" (click)="navigate('sign-up')">Zarejestruj się</button></div>
+   </div>
+   <div class="row text-center" *ngIf="isUserLogged">
+     <div class="col"><button type="button" class="btn btn-primary" (click)="logout()">Wyloguj sie</button></div>
+   </div>
+   <div class="row">
+     <div class="col" *ngIf="isUserLogged">
+       <ul class="list-group">
+         <li class="list-group-item">
+           <a routerLinkActive="active" (click)="navigate('orders')"><button type="button" class="btn btn-primary">Zamówienia</button></a>
+         </li>
+         <li class="list-group-item">
+           <a routerLinkActive="active" (click)="navigate('address')"><button type="button" class="btn btn-primary">Adres</button></a>
+         </li>
+         <li class="list-group-item" *ngIf="isAdmin">
+           <a routerLink="/admin" routerLinkActive="active" (click)="activeModal.close()">Panel administratora</a>
+         </li>
+       </ul>
+     </div>
+   </div>
+ </div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-primary" (click)="activeModal.close('Close click')">Zamknij</button>
+</div>

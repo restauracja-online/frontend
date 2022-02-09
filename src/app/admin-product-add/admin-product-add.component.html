@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="row">
+    <form action="#">
+      <h3>{{header}}</h3>
+      <div class="form-group">
+        <label for="dish_name">Nazwa dania</label>
+        <input required dish_name [(ngModel)]="form.dish_name" #dish_name="ngModel" type="text" name="dish_name" id="dish_name"
+               class="form-control">
+        <small class="text-center text-danger"
+               *ngIf="dish_name.touched && dish_name.errors != null && dish_name.errors.required">Nazwa dania jest wymagana</small>
+      </div>
+      <div class="form-group">
+        <label for="dish_desc">Opis</label>
+        <input required dish_desc [(ngModel)]="form.dish_desc" #dish_desc="ngModel" type="text" name="dish_desc" id="dish_desc"
+               class="form-control">
+        <small class="text-center text-danger"
+               *ngIf="dish_desc.touched && dish_desc.errors != null && dish_desc.errors.required">Opis jest wymagany</small>
+      </div>
+      <div class="form-group">
+        <label for="dish_price">Cena</label>
+        <input required dish_price [(ngModel)]="form.dish_price" #dish_price="ngModel" type="number" name="dish_price" id="dish_price"
+               class="form-control">
+        <small class="text-center text-danger"
+               *ngIf="dish_price.touched && dish_price.errors != null && dish_price.errors.required">Cena jest wymagana</small>
+      </div>
+      <div class="form-group">
+        <label for="dish_name">Url obrazka</label>
+        <input required dish_img [(ngModel)]="form.dish_img" #dish_img="ngModel" type="text" name="dish_img" id="dish_img"
+               class="form-control">
+        <small class="text-center text-danger"
+               *ngIf="dish_img.touched && dish_img.errors != null && dish_img.errors.required">Adres url obrazka jest wymagany</small>
+      </div>
+      <div class="form-group row">
+        <label class="col-form-label col-lg-3">Dodatki:</label>
+        <div class="col-lg-9">
+          <select required dish_ing id="dish_ing" name="dish_ing"  [(ngModel)]="form.dish_ing" #dish_ing="ngModel" class="form-control multiselect-select-all" multiple="multiple" data-fouc>
+            <option *ngFor="let ingredient of ingredientsForm;" [value]="ingredient">{{ingredient.ing_name}}</option>
+          </select>
+          <small class="text-center text-danger"
+                 *ngIf="dish_ing.touched && dish_ing.errors != null && dish_ing.errors.required">Dodatki są wymagane</small>
+        </div>
+      </div>
+      <div class="col">
+        <div *ngIf="dishId; else addIngredientButton">
+          <button class="btn btn-primary btn-block" type="submit" (click)="edit()">Edytuj danie</button>
+        </div>
+        <ng-template #addIngredientButton>
+          <button class="btn btn-primary btn-block" type="submit" (click)="save()">Dodaj dane</button>
+        </ng-template>
+      </div>
+    </form>
+    <div class="col">
+      <p>{{failureMessage}}</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col card-col">
+      <fa-icon [icon]="faTimes" (click)="removeOrderRow(orderRow.orderRowId)" size="sm" class="float-right pb-1 text-primary"></fa-icon>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col card-title card-col">
+      <span>{{orderRow.dishDto.name}}</span>
+      <span class="float-right card-item-price">{{orderRow.dishDto.price}} zł</span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col card-col">
+      <p class="card-subtitle">
+        <span *ngFor="let ingredient of orderRow.dishDto.ingredients">
+          {{ingredient.name}}
+        </span>
+      </p>
+    </div>
+  </div>
+</div>

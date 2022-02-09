@@ -1,0 +1,5 @@
+<nav class="navbar bg-primary">
+  <a routerLink="/home"><fa-icon [icon]="faUtensils" size="lg" class="icon-white"></fa-icon></a>
+  <span class="text-truncate" *ngIf="userAddress">{{userAddress}}</span>
+<fa-icon [icon]="faBars" size="lg" class="icon-white" (click)="openUserMenuModal()"></fa-icon>
+</nav>

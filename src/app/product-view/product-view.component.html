@@ -1,0 +1,26 @@
+<div class="card border-0 mb-2" style="width: 60rem;"  *ngFor="let dishdetails of dishesMain">
+  <div class="row">
+    <div class="col-md-3  justify-content-center">
+      <img
+        class="img-fluid align-bottom"
+        src="{{dishdetails.imgURL}}"
+        alt="img">
+    </div>
+    <div class="col-md-9">
+      <h5 class="card-title font-weight-bold">Nazwa pizzy: {{dishdetails.name}}</h5>
+      <h5 class="ingrendient-list">Opis: {{dishdetails.description}}</h5>
+      <h5>Składniki</h5>
+      <p *ngFor="let ingredient of dishdetails.ingredients">{{ingredient.name}}</p>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col">
+            <div class="row mt-2">
+              <h5 class="mt-1 font-weight-bold">{{dishdetails.price | currency: "PLN"}}</h5>
+              <button (click)="addToCart(dishdetails.id)" class="btn btn-primary" type="submit" style="margin: 0 auto;">Dodaj do zamówienia!</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
