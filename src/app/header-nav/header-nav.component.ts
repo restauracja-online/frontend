@@ -1,5 +1,8 @@
+// @ts-ignore
 import {Component, OnInit} from '@angular/core';
+// @ts-ignore
 import {faUtensils, faBars} from '@fortawesome/free-solid-svg-icons';
+// @ts-ignore
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {UserMenuModalComponent} from '../modals/user-menu-modal/user-menu-modal.component';
 import {LoginFormModalComponent} from '../modals/login-form-modal/login-form-modal.component';
